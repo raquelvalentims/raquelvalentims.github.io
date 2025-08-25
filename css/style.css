@@ -1,0 +1,250 @@
+/* css/style.css */
+
+/* --- Estilos Globais e Reset Básico --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Layout Principal (Cabeçalho, Conteúdo, Rodapé) --- */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menu ul {
+    list-style: none;
+    text-align: center;
+}
+
+.menu ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #00bcd4;
+}
+
+.menu ul li a.active {
+    color: #00bcd4;
+    border-bottom: 2px solid #00bcd4;
+}
+
+.content {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    flex: 1;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* --- Estilos de Tipografia (Títulos e Parágrafos) --- */
+/* >> ALTERAÇÃO FEITA CORRETAMENTE AQUI << */
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    text-align: center; /* h1 e h2 centralizados */
+}
+
+h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    /* h3 não tem o text-align, então manterá o padrão (à esquerda) */
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* --- Componentes e Seções Específicas --- */
+
+/* Página Sobre Mim */
+.about-me {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-pic {
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícones de Contato (SVG) na página Sobre Mim */
+.contact-icons {
+    margin-top: 1.5rem;
+}
+
+.contact-icons a {
+    text-decoration: none; 
+    margin-right: 1rem;
+}
+
+.contact-icons a svg {
+    fill: #555; 
+    width: 28px;
+    height: 28px;
+    transition: fill 0.3s ease; 
+}
+
+.contact-icons a:hover svg {
+    fill: #00bcd4; 
+}
+
+/* Página Formação (estilo de bloco reutilizável) */
+.education-item {
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #00bcd4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Página Portfólio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.portfolio-item a {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-item a:hover {
+    background-color: #0097a7;
+}
+
+/* Página Contato (Formulário) */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #34495e;
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+    .about-me {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Adicionando centralização dos ícones no modo mobile */
+    .contact-icons {
+        text-align: center;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
